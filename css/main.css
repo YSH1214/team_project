@@ -1,8 +1,8 @@
 body{
-    background-image: url("../images/backimg.png");
+    background: url("../images/backimg.png") no-repeat center fixed;
     height: 100vh;
-    width: auto;
-
+    width: 100vw;
+    opacity: 10;
 }
 header{
     display: flex;
@@ -25,7 +25,7 @@ form{
     min-width: 1000px;
     width: 100%;
     text-align: center;
-    background-color: rgba(255, 223, 163, 0.5);
+    background-color: rgba(255, 223, 163, 0.719);
 }
 thead{
     border-top: 1px solid rgba(0,0,0,0.5);
@@ -67,10 +67,10 @@ table.itemTable td:nth-child(1){
 }
 .pagenum{
     text-decoration: none;
-    color: rgba(128, 128, 128, 0.674);
+    color: rgba(128, 128, 128, 0.7);
 }
 .pagenum:hover{
-    color: rgba(0, 0, 0, 0.8);
+    color: rgba(0, 0, 0, 0.7);
 }
 
 
