@@ -1,0 +1,91 @@
+body{
+    background-image: url("../images/backimg.png");
+    height: 100vh;
+    width: auto;
+
+}
+header{
+    display: flex;
+    width: 100vw;
+    margin-top: 25px;
+    justify-content: center;
+}
+#homeimg{
+    height: 45px;
+    width: 45px;
+}
+
+/*상단 카테고리 및 검색*/
+form{
+    float: right;
+}
+
+/*테이블 css*/
+.itemTable{
+    min-width: 1000px;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(255, 223, 163, 0.5);
+}
+thead{
+    border-top: 1px solid rgba(0,0,0,0.5);
+    background-color: rgba(255, 166, 0, 0.5);
+}
+tr{
+    border-bottom: 1px solid rgba(0,0,0,0.5);
+    height: 60px;
+}
+tbody tr:hover{
+    background-color: #fde0ab87;
+}
+table.itemTable td:nth-last-child(1){
+    padding-right: 15px;
+    text-align: right;
+}
+table.itemTable td:nth-child(1){
+    background-color: #fac15787;
+    border-right: 1px solid rgba(0,0,0,0.5);
+}
+#capri{
+    text-align: center;
+    width: 10vw;
+}
+
+
+
+/*paging*/
+#paging{
+    display: flex;
+    width: 100vw;
+    margin-top: 50px;
+    justify-content: center;
+}
+.lies{
+    list-style-type: none;
+    float: left;
+    margin-left: 15px;
+}
+.pagenum{
+    text-decoration: none;
+    color: rgba(128, 128, 128, 0.674);
+}
+.pagenum:hover{
+    color: rgba(0, 0, 0, 0.8);
+}
+
+
+
+/*footer*/
+#foot{
+    display: flex;
+    min-height: 130px;
+}
+#gitadd{
+    margin: 10px 50px;
+    margin-left: 150px;
+    width: 45px;
+    height: 45px;
+}
+#myinfo{
+    min-width: 250px;
+}

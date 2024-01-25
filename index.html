@@ -1,12 +1,157 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h1>메인 코드입니다.</h1>
-  </body>
+<html lang="ko">
+<head>
+    <title>Admin Page</title>
+    <!-- 부트 스트링 로드 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" 
+    crossorigin="anonymous">
+    <!-- 외부css 스타일 시트 가져오기 -->
+    <link rel="stylesheet" href="./css/main.css" type="text/css">
+</head>
+<body>
+    <header>
+        <img src="./images/git.png" id="homeimg">
+        <h1>깃마트</h1>
+    </header>
+    <div class="container mt-3">
+        <h3 class="toptitle">신규 등록 상품</h3>
+        <!-- 카테고리 select -->
+        <form class="row row-cols-lg-auto g-3 align-items-center">      
+            <div class="col-12">
+                <select class="form-select form-select-sm" aria-label="Small select example">
+                    <option selected value="0">카테고리</option>
+                    <option value="1">상의</option>
+                    <option value="2">하의</option>
+                    <option value="3">신발</option>
+                    <option value="3">패션잡화</option>
+                </select>
+            </div>
+            <div class="col-3">
+                <!-- input 입력창 코드를 넣어주세요 -->
+                <input type="text" id="searchText" placeholder="제품명을 입력하세요">
+            </div>
+            <div class="col-auto">
+                <!-- 조회버튼 코드를 넣어주세요 -->
+                <input type="button" id="searchbtn" value="조회" onclick="">
+            </div>
+        </form>
+        
+        <br>
+        <hr>
+
+        <div class="container mt-3"></div>
+        <table class="itemTable">
+            <thead>
+                <!-- 열의 속성값을 나타내는 코드를 작성해주세요 (예 : 카테고리, 브랜드, 상품명, 가격) -->
+                <tr>
+                    <td id="carnu">번호</td>
+                    <td id="carob">종류</td>
+                    <td id="carbr">브랜드</td>
+                    <td id="carna">제품명</td>
+                    <td id="capri">가격</td>
+                </tr>
+            </thead>
+            <tbody id="data-table">
+                <!-- 추후 크롤링한 데이터가 들어가는 자리 -->
+            </tbody>
+        </table>
+    </div>
+    <!-- 페이지 네이션 코드를 넣어주세요 -->
+    <div id="paging">
+        <ul id="pagination">
+
+        </ul>
+    </div>
+
+    <br>
+    <hr>
+    <br>
+
+    <footer id="foot">
+        <nav>
+            <a href="https://github.com/YSH1214/team_project/blob/80a3a9a75940eba177002b165c0385309e73a7aa/index.html">
+                <img id="gitadd" src="./images/git.png">
+            </a>
+        </nav>
+        <p id="myinfo">
+            <span>제작자 : 김대호</span><br/>
+            <span>이메일 : eoghgha@naver.com</span><br/>
+            <span>전화번호 : 010 5291 7828</span>
+        </p>
+    </footer>
+    <script>
+    // 크롤링한 데이터를 아래와 같은 형태의 객체 배열로 가정합니다.
+    // 추후 데이터베이스에 있는 데이터를 쿼리문으로 불러 올 수 있게 쿼리르 작성해 볼 수 있음
+    const data = [
+        { category: "상의", brand: 'Supreme', product: '슈프림 박스로고 후드티', price: '390,000' },
+        { category: "하의", brand: 'DIESEL', product: '디젤 트랙 팬츠', price: '188,000' },
+        { category: "신발", brand: 'Nike', product: '에어포스 1', price: '137,000' },
+        { category: "패션잡화", brand: 'Music&Goods', product: '빵빵이 키링', price: '29,000' },
+        { category: "패션잡화", brand: 'Music&Goods', product: '빵빵이 키링', price: '29,000' },
+        { category: "패션잡화", brand: 'Music&Goods', product: '빵빵이 키링', price: '29,000' },
+        { category: "상의", brand: 'Supreme', product: '슈프림 박스로고 후드티', price: '390,000' },
+        { category: "하의", brand: 'DIESEL', product: '디젤 트랙 팬츠', price: '188,000' },
+        { category: "신발", brand: 'Nike', product: '에어포스 1', price: '137,000' },
+        { category: "패션잡화", brand: 'Music&Goods', product: '빵빵이 키링', price: '29,000' },
+        { category: "패션잡화", brand: 'Music&Goods', product: '빵빵이 키링', price: '29,000' },
+        { category: "패션잡화", brand: 'Music&Goods', product: '빵빵이 키링', price: '29,000' },
+        // ...
+    ];
+      
+    //i값을 통해 번호를 지정해줌
+    const dataTable = document.getElementById('data-table');
+    i = 1
+      
+    data.forEach((item) => {
+        const row = dataTable.insertRow();
+        row.insertCell(0).innerHTML = i;
+        row.insertCell(1).innerHTML = item.category;
+        row.insertCell(2).innerHTML = item.brand;
+        row.insertCell(3).innerHTML = item.product;
+        row.insertCell(4).innerHTML = item.price+"원";
+        i++;
+        if(i==10){
+            stop
+        }
+    });
+
+    //페이지네이션
+    //data에 입력한 값의 개수를 length를 이용해 가져옴
+    var totalcontent = data.length;
+    //Math.ceil은 무조건반올림 해주는 함수로 10개면 1페이지 11개면 2페이지에 나올 수 있게 반올림 해준다.
+    const totalpage = Math.ceil(totalcontent/10);
+
+    document.addEventListener('DOMContentLoaded' , () =>{
+        setpaginghtml();
+        
+    });
+
+
+    function setpaginghtml(){
+    //li 와 a를 가지고 페이징 넣기
+    let pageHtml=
+        '<li class="lies"><a class="pagenum" href="#"> < </a></li>';
+    //for문을 이용해 필요한 페이지만큼 li생성 및 출력
+    for(let i = 1; i <= totalpage; i ++){
+        pageHtml +=
+            `<li class="lies">
+               <a href="#" class="pagenum">${i}</a>
+             </li>`;
+    }
+
+    pageHtml +=
+        '<li class="lies"><a class="pagenum" href="#"> > </a></li>';
+
+    //지금까지 적고 만든 페이징을 html을 이용해 보여줌
+    document.getElementById("pagination").innerHTML = pageHtml; 
+    }
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" 
+    crossorigin="anonymous"></script>
+</body>
 </html>
-<!-- test -->
